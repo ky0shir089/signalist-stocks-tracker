@@ -1,6 +1,11 @@
-const Home = () => {
+import Header from "@/components/Header";
+
+const HomePage = () => {
     return (
-        <div>Home</div>
+        <div className="flex min-h-screen home-wrapper">
+            <Header/>
+            Home
+        </div>
     )
 }
-export default Home
+export default HomePage
