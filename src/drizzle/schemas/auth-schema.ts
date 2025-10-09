@@ -1,4 +1,6 @@
+import { relations } from "drizzle-orm";
 import { pgTable, text, timestamp, boolean } from "drizzle-orm/pg-core";
+import { watchlist } from "./watchlist";
 
 export const user = pgTable("user", {
   id: text("id").primaryKey(),
@@ -12,6 +14,10 @@ export const user = pgTable("user", {
     .$onUpdate(() => /* @__PURE__ */ new Date())
     .notNull(),
 });
+
+export const userRelations = relations(user, ({ many }) => ({
+  watchlists: many(watchlist),
+}));
 
 export const session = pgTable("session", {
   id: text("id").primaryKey(),
