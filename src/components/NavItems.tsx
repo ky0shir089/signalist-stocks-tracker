@@ -23,7 +23,7 @@ const NavItems = ({
       {NAV_ITEMS.map(({ href, label }) => {
         if (href === "/search")
           return (
-            <li key="search-trigger">
+            <li key={href}>
               <SearchCommand
                 renderAs="text"
                 label="Search"
