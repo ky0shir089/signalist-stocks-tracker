@@ -39,12 +39,11 @@ const SignInPage = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
       try {
-        console.log(values);
         await authClient.signIn.email(
           { ...values, callbackURL: "/" },
           {
             onError: (error) => {
-              toast.error(error.error.message || "Failed to sign up");
+              toast.error(error.error.message || "Failed to sign in");
             },
           }
         );
